@@ -65,3 +65,12 @@ inline void sti(){
 inline void hlt(){
     __asm__ __volatile__ ("hlt");
 }
+
+// http://www.cnblogs.com/taek/archive/2012/02/05/2338838.html
+int call(int no) {
+    volatile int ret = -1;
+    __asm__ __volatile__("mov 0x8(%ebp), %eax\n\t"
+        "int $0x80\n\t"
+        "mov %eax, -0x4(%ebp)");
+    return ret;
+}

@@ -16,4 +16,7 @@ void cli();
 void sti();
 void hlt();
 
+// 用户调用
+int call(int no);
+
 #endif
