@@ -81,7 +81,7 @@ int os_main(void)
     uvm_switch(proc);
     restart(); // 完成中断的后半部分，从而进入init进程
 
-    while (1); // handle interrupt
+    hlt(); // handle interrupt
 
     return 0;
 }

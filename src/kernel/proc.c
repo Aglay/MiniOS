@@ -337,7 +337,7 @@ int fork() {
     vmm_map(child->pgdir, (uint32_t)child->stack, (uint32_t)child->stack, PTE_P | PTE_R | PTE_U);
 
     if (child->pgdir == 0) { // 拷贝失败
-        panic("fork:");
+        panic("fork:", 0);
         pmm_free((uint32_t)child->stack);
         child->stack = 0;
         child->state = P_UNUSED;
